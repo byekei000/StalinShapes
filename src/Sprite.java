@@ -37,11 +37,16 @@ public class Sprite implements Move, Paint{
     }
 
     public boolean collidesWith(Sprite other){
-        
+        return this.getBounds().intersects(other.getBounds());
+    }
+
+    public void bounce() {
+        dx *= -1;
+        dy *= -1;
     }
 
     public Rectangle getBounds() {
-        return new Rectangle(x+(int)dx,y+(int)dy,width,height);
+        return new Rectangle(x,y,width,height);
     }
 
     public void paint(Graphics g) {
